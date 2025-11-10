@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 
-// Definições para características
+// DefiniÃ§Ãµes para caracterÃ­sticas
 #define FRANKEN 1
 #define HAPPY 2
 #define ZOMBOS 3
@@ -12,7 +12,7 @@
 #define VEGITAS 2
 #define SPRITEM 3
 
-// Estrutura para armazenar as características de um monstro
+// Estrutura para armazenar as caracterÃ­sticas de um monstro
 struct CaracteristicasMonstro {
     int cabeca;
     int olhos;    
@@ -132,9 +132,9 @@ int menu_orelha() {
     return escolha;
 }
 
-// Funções de Identificação 
+// FunÃ§Ãµes de IdentificaÃ§Ã£o 
 void identificar_rosto(int olhos) {
-    printf("\n? **IDENTIFICACAO DO ROSTO**\n");
+    printf("\n **IDENTIFICACAO DO ROSTO**\n");
     switch (olhos) {
         case 1:
             printf("Tipo de Rosto: **WACKUS**\n");
@@ -151,7 +151,7 @@ void identificar_rosto(int olhos) {
 }
 
 void identificar_cabeca(int cabeca) {
-    printf("\n? **IDENTIFICACAO DA CABECA**\n");
+    printf("\n **IDENTIFICACAO DA CABECA**\n");
     switch (cabeca) {
         case FRANKEN:
             printf("Formato de Cabeca: **FRANKEN**\n");
@@ -179,13 +179,14 @@ const char* obter_nome_rosto(int olhos) {
 
 const char* obter_nome_cabeca(int cabeca) {
     switch (cabeca) {
-        case FRANKEN: return "FRANKEN";        case HAPPY: return "HAPPY";
+        case FRANKEN: return "FRANKEN";
+        case HAPPY: return "HAPPY";
         case ZOMBOS: return "ZOMBOS";
         default: return "Cabeca Desconhecida";
     }
 }
 
-// Função lógica do Identificador de Monstros
+// FunÃ§Ã£o lÃ³gica do Identificador de Monstros
 void identificador_de_monstros() {
     struct CaracteristicasMonstro monstro;
     char continuar;
@@ -212,7 +213,7 @@ void identificador_de_monstros() {
         printf("                                                                        \n");
         printf("--- Selecione as Caracteristicas do Monstro ---\n");
 
-        // Coleta das características
+        // Coleta das caracterÃ­sticas
         monstro.cabeca = menu_cabeca();
         monstro.olhos = menu_olhos();
         monstro.nariz = menu_nariz();
@@ -221,14 +222,14 @@ void identificador_de_monstros() {
 
         printf("\n--- Resultado da Identificacao ---\n");
 
-        // Processamento e identificação
+        // Processamento e identificaÃ§Ã£o
         identificar_cabeca(monstro.cabeca);
         identificar_rosto(monstro.olhos);
                 
         nome_cabeca = obter_nome_cabeca(monstro.cabeca);
         nome_rosto = obter_nome_rosto(monstro.olhos);
 
-        printf("\n?? **MONSTRO IDENTIFICADO:** **%s %s**\n", nome_cabeca, nome_rosto);
+        printf("\n **MONSTRO IDENTIFICADO:** **%s %s**\n", nome_cabeca, nome_rosto);
         
         printf("\n----------------------------------\n");
         printf("Deseja identificar um novo monstro? (S/N): ");
